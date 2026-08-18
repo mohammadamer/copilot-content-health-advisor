@@ -3,6 +3,8 @@ import type {
   ISPCopilotBridge,
   SPCopilotDisplayMode
 } from '@microsoft/sp-copilot-component';
+import type { IContentHealthGraphService } from '../services';
+import type { ISelectedSite } from '../models/ContentHealthModels';
 
 export interface IContentHealthAdvisorStrings {
   ExpandButtonLabel: string;
@@ -17,6 +19,16 @@ export interface IContentHealthAdvisorStrings {
   UnknownTheme: string;
   DefaultDisplayMode: string;
   FollowUpMessage: string;
+  SelectSiteLabel: string;
+  SiteSearchPlaceholder: string;
+  AnalyzeSiteLabel: string;
+  AnalyzeContentLabel: string;
+  ScoreLabel: string;
+  PagesAnalyzedLabel: string;
+  NoResultsLabel: string;
+  SearchSitesLabel: string;
+  SiteSelectionError: string;
+  AnalysisError: string;
 }
 
 export interface IContentHealthAdvisorProps {
@@ -44,4 +56,6 @@ export interface IContentHealthAdvisorProps {
   targetDocument: Document | undefined;
   /** Localized strings for UI labels. */
   strings: IContentHealthAdvisorStrings;
+  graphService: IContentHealthGraphService;
+  initialSite: ISelectedSite;
 }

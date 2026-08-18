@@ -2,7 +2,7 @@
 
 ## Summary
 
-Short summary on functionality and used technologies.
+SharePoint Content Health Advisor analyzes pages and news posts from one user-selected SharePoint site. It retrieves metadata through Microsoft Graph, applies configurable deterministic content-health rules, and loads page content only when the user requests deep analysis.
 
 [picture of the solution in action, if possible]
 
@@ -55,13 +55,13 @@ Other build commands can be listed using `heft --help`.
 
 ## Features
 
-Description of the extension that expands upon high-level summary above.
+The dashboard identifies content that may need attention without presenting the result as an official Microsoft assessment. Every request uses the selected site's `siteId`; changing the selection clears the existing results.
 
 This extension illustrates the following concepts:
 
-- topic 1
-- topic 2
-- topic 3
+- Microsoft Graph site search, paginated site-page metadata retrieval, and selected-page `canvasLayout` retrieval
+- Unit-testable rules for missing descriptions, potentially stale content, short content, older year references, and generic titles
+- Transparent Content Health Scores from 0 to 100 with Healthy, Needs Attention, and High Priority statuses
 
 > Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
 
