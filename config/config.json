@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "content-health-advisor-copilot-component": {
+      "components": [
+        {
+          "entrypoint": "./lib/copilotComponents/contentHealthAdvisor/ContentHealthAdvisorCopilotComponent.js",
+          "manifest": "./src/copilotComponents/contentHealthAdvisor/ContentHealthAdvisorCopilotComponent.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ContentHealthAdvisorCopilotComponentStrings": "lib/copilotComponents/contentHealthAdvisor/loc/{locale}.js"
+  }
+}

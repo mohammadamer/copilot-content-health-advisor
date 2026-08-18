@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "copilot-content-health-advisor-client-side-solution",
+    "id": "d17a67c7-2d42-4e65-8490-fc1f64c232df",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.24.0-beta.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "copilot-content-health-advisor description"
+      },
+      "longDescription": {
+        "default": "copilot-content-health-advisor description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "copilot-content-health-advisor Feature",
+        "description": "The feature that activates elements of the copilot-content-health-advisor solution.",
+        "id": "d8ac1a55-2828-4606-ade4-d6c901cb0a77",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/copilot-content-health-advisor.sppkg"
+  }
+}

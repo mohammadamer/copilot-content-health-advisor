@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.4/schema.json",
+  "schema_version": "v2.4",
+  "namespace": "contentHealthAdvisor",
+  "name_for_human": "ContentHealthAdvisor Agent",
+  "description_for_human": "ContentHealthAdvisor description",
+  "description_for_model": "ContentHealthAdvisor description",
+  "contact_email": "publisher@contoso.com"
+}
