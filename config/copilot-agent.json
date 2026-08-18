@@ -1,0 +1,16 @@
+{
+  "$schema": "../node_modules/@microsoft/spfx-heft-plugins/lib-commonjs/plugins/copilotAgentPlugin/copilot-agent.schema.json",
+  "agents": [
+    {
+      "name": {
+        "default": "ContentHealthAdvisor Agent"
+      },
+      "description": {
+        "default": "ContentHealthAdvisor description"
+      },
+      "components": [
+        "7bf8bba4-756d-4ca8-91d2-39494f3163c6"
+      ]
+    }
+  ]
+}

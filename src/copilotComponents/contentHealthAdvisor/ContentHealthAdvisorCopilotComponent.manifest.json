@@ -1,0 +1,25 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-component-manifest.schema.json",
+  "id": "7bf8bba4-756d-4ca8-91d2-39494f3163c6",
+  "alias": "ContentHealthAdvisorCopilotComponent",
+  "componentType": "CopilotComponent",
+  "copilotType": "Ux",
+  "version": "*",
+  "manifestVersion": 2,
+
+  "capabilities": {
+    "availableDisplayModes": ["inline", "fullscreen"]
+  },
+
+  "tools": [
+    {
+      "name": "ContentHealthAdvisorTool",
+      "description": {
+        "default": "ContentHealthAdvisor description"
+      },
+      "propertiesSchema": {
+        "id": "$../../../lib/copilotComponents/contentHealthAdvisor/ContentHealthAdvisorCopilotComponentProperties.js:default;"
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": true,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.18.0",
+    "sdksVersions": {},
+    "version": "1.24.0-beta.2",
+    "libraryName": "copilot-content-health-advisor",
+    "libraryId": "d17a67c7-2d42-4e65-8490-fc1f64c232df",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "copilot-content-health-advisor",
+    "solutionShortDescription": "copilot-content-health-advisor description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "copilotComponent"
+  }
+}
