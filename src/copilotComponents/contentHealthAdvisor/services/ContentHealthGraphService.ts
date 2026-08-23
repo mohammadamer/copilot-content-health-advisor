@@ -1,5 +1,5 @@
 import type { MSGraphClientV3 } from '@microsoft/sp-http';
-import type { IContentPage, IExtractedPageContent, ISelectedSite } from '../models/ContentHealthModels';
+import type { ContentPageType, IContentPage, IExtractedPageContent, ISelectedSite } from '../models/ContentHealthModels';
 
 interface IGraphCollection<T> { value?: T[]; '@odata.nextLink'?: string; }
 interface IGraphSite { id?: string; name?: string; displayName?: string; webUrl?: string; }
@@ -32,7 +32,7 @@ export class ContentHealthGraphService implements IContentHealthGraphService {
         id: page.id, title: page.title || page.name || 'Untitled', name: page.name || '', description: page.description || '', webUrl: page.webUrl || '',
         createdDateTime: page.createdDateTime, lastModifiedDateTime: page.lastModifiedDateTime,
         createdBy: page.createdBy?.user?.displayName, lastModifiedBy: page.lastModifiedBy?.user?.displayName,
-        pageLayout: page.pageLayout, promotionKind: page.promotionKind, type: page.promotionKind === 'newsPost' ? 'News' : 'Page'
+        pageLayout: page.pageLayout, promotionKind: page.promotionKind, type: (page.promotionKind === 'newsPost' ? 'News' : 'Page') as ContentPageType
       })));
       nextUrl = response['@odata.nextLink'];
     }
@@ -48,7 +48,7 @@ export class ContentHealthGraphService implements IContentHealthGraphService {
   private extractText(value: unknown): string {
     if (typeof value === 'string') return value;
     if (Array.isArray(value)) return value.map(item => this.extractText(item)).filter(Boolean).join(' ');
-    if (value && typeof value === 'object') return Object.values(value as Record<string, unknown>).map(item => this.extractText(item)).filter(Boolean).join(' ');
+    if (value && typeof value === 'object') { const record = value as Record<string, unknown>; return Object.keys(record).map((key: string) => this.extractText(record[key])).filter(Boolean).join(' '); }
     return '';
   }
 }

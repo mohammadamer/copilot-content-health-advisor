@@ -51,7 +51,10 @@ export class OutdatedYearReferenceRule implements IContentHealthRule {
     if (!context.content) return undefined;
     const threshold = context.config.oldYearThreshold ?? 2;
     const currentYear = context.now.getFullYear();
-    const years = [...context.content.text.matchAll(/\b(19|20)\d{2}\b/g)].map(match => Number(match[0]));
+    const yearPattern = /\b(19|20)\d{2}\b/g;
+    const years: number[] = [];
+    let match: RegExpExecArray | null;
+    while ((match = yearPattern.exec(context.content.text)) !== null) { years.push(Number(match[0])); }
     const oldYear = years.find(year => year < currentYear - threshold);
     if (!oldYear) return undefined;
     return issue(this.id, 'Possible Old Year Reference', 'Warning', 'The page references an older year and may need review.', `Found reference to year: ${oldYear}`, 'Check whether the year reference is still accurate; it is not assumed to be wrong.', context.config.warningPenalty ?? 10);
