@@ -9,6 +9,8 @@ import { SPHttpClient, type SPHttpClientResponse } from '@microsoft/sp-http';
 import ContentHealthAdvisor from './components/ContentHealthAdvisor';
 import type { IContentHealthAdvisorProps } from './components/IContentHealthAdvisorProps';
 import type { IContentHealthAdvisorCopilotComponentProperties } from './ContentHealthAdvisorCopilotComponentProperties';
+import { ContentHealthGraphService } from './services';
+import type { ISelectedSite } from './models/ContentHealthModels';
 
 import * as strings from 'ContentHealthAdvisorCopilotComponentStrings';
 
@@ -36,6 +38,7 @@ export default class ContentHealthAdvisorCopilotComponent extends BaseCopilotCom
   private _userDisplayName: string = '';
   private _siteTitle: string = '';
   private _siteUrl: string = '';
+  private _graphService: ContentHealthGraphService | undefined;
 
   protected async onInit(): Promise<void> {
     this._siteUrl = this.context.pageContext.web.absoluteUrl;
@@ -45,6 +48,7 @@ export default class ContentHealthAdvisorCopilotComponent extends BaseCopilotCom
     // real services may not be available.
     try {
       const graphClient: MSGraphClientV3 = await this.context.msGraphClientFactory.getClient('3');
+      this._graphService = new ContentHealthGraphService(graphClient);
       const me: { displayName?: string } = await graphClient.api('/me').select('displayName').get();
       this._userDisplayName = me.displayName || 'User';
     } catch {
@@ -79,7 +83,9 @@ export default class ContentHealthAdvisorCopilotComponent extends BaseCopilotCom
         await this.requestSizeChangeAsync(width, height);
       },
       targetDocument: this.context.domElement.ownerDocument,
-      strings
+      strings,
+      graphService: this._graphService as ContentHealthGraphService,
+      initialSite: { siteId: this.context.pageContext.site.id.toString(), siteUrl: this._siteUrl, siteName: this._siteTitle } as ISelectedSite
     };
 
     ReactDOM.render(React.createElement(ContentHealthAdvisor, props), this.context.domElement);

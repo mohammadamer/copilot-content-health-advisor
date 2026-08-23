@@ -16,6 +16,16 @@ declare interface IContentHealthAdvisorCopilotComponentStrings {
   ThemeLabel: string;
   MessageLabel: string;
   ExpandToFullscreenTitle: string;
+  SelectSiteLabel: string;
+  SiteSearchPlaceholder: string;
+  AnalyzeSiteLabel: string;
+  AnalyzeContentLabel: string;
+  ScoreLabel: string;
+  PagesAnalyzedLabel: string;
+  NoResultsLabel: string;
+  SearchSitesLabel: string;
+  SiteSelectionError: string;
+  AnalysisError: string;
 }
 
 declare module 'ContentHealthAdvisorCopilotComponentStrings' {
